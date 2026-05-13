@@ -33,7 +33,7 @@ function CountVowels(sentence) {
     }
   }
 
-  console.log(count);
+  console.log("Total vowels contans: ", count);
 }
 
 CountVowels("My name is Ammar");
@@ -81,4 +81,37 @@ function isPalindrome(arr) {
   return isPalindrome;
 }
 
-console.log(isPalindrome([1, 2, 2, 3, 2, 2, 1]));
+console.log("Is Palindrome: ", isPalindrome([1, 2, 2, 3, 2, 2, 1]));
+
+/* Problem-15: Check if two arrays are equal
+Write a function to check whether two arrays contain the same elements, regardless of order. 
+
+Example Inputs and Outputs
+Array 1	            Array 2	      Output
+[1, 2, 3]	        [3, 2, 1]	        true
+[1, 2, 2, 3]	    [3, 2, 1, 2]	    true
+[1, 2, 3]	        [1, 2, 4]	        false
+[1, 2, 3]	        [1, 2, 3, 4]	    false
+["a", "b", "c"]	  ["c", "b", "a"]	  true
+[1, 1, 2]	        [1, 2, 2]	        false
+[]	              []	              true
+*/
+
+function isSameElement(arr1, arr2) {
+  const sortArr1 = arr1.sort();
+  const sortArr2 = arr2.sort();
+  // console.log(sortArr1, sortArr2);
+
+  const isSame = sortArr1.every((value, index) => {
+    if (sortArr1.length !== sortArr2.length) {
+      return false;
+    }
+    // console.log(value, sortArr2[index]);
+
+    return value === sortArr2[index];
+  });
+
+  return isSame;
+}
+
+console.log("Is same elements: ", isSameElement([1, 2, 3], [2, 1, 3]));
