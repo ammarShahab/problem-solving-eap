@@ -61,3 +61,24 @@ function removeDuplicate(string) {
 }
 
 removeDuplicate("yyyYYYuuIII");
+
+/* Problem-3:
+Check if an array is a palindrome
+Write a function to determine whether an array reads the same backward as forward.
+Example: 
+[1, 2, 2, 1]	true
+[1, 2, 3, 2, 1] true
+[1, 2, 3, 4]	false
+*/
+
+function isPalindrome(arr) {
+  const revArr = [...arr].reverse();
+  // console.log(revArr);
+
+  const isPalindrome = arr.every((value, index) => {
+    return value === revArr[index];
+  });
+  return isPalindrome;
+}
+
+console.log(isPalindrome([1, 2, 2, 3, 2, 2, 1]));
