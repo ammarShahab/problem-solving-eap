@@ -65,10 +65,6 @@ removeDuplicate("yyyYYYuuIII");
 /* Problem-3:
 Check if an array is a palindrome
 Write a function to determine whether an array reads the same backward as forward.
-Example: 
-[1, 2, 2, 1]	true
-[1, 2, 3, 2, 1] true
-[1, 2, 3, 4]	false
 */
 
 function isPalindrome(arr) {
@@ -85,19 +81,12 @@ console.log("Is Palindrome: ", isPalindrome([1, 2, 2, 3, 2, 2, 1]));
 
 /* Problem-15: Check if two arrays are equal
 Write a function to check whether two arrays contain the same elements, regardless of order. 
-
-Example Inputs and Outputs
-Array 1	            Array 2	      Output
-[1, 2, 3]	        [3, 2, 1]	        true
-[1, 2, 2, 3]	    [3, 2, 1, 2]	    true
-[1, 2, 3]	        [1, 2, 4]	        false
-[1, 2, 3]	        [1, 2, 3, 4]	    false
-["a", "b", "c"]	  ["c", "b", "a"]	  true
-[1, 1, 2]	        [1, 2, 2]	        false
-[]	              []	              true
 */
 
 function isSameElement(arr1, arr2) {
+  if (Array.isArray(arr1) || Array.isArray(arr2)) {
+    return "Input is not an array";
+  }
   const sortArr1 = arr1.sort();
   const sortArr2 = arr2.sort();
   // console.log(sortArr1, sortArr2);
@@ -114,4 +103,17 @@ function isSameElement(arr1, arr2) {
   return isSame;
 }
 
-console.log("Is same elements: ", isSameElement([1, 2, 3], [2, 1, 3]));
+console.log("Is same elements: ", isSameElement(7, [2, 1, 3]));
+
+/* 
+Move all zeros to the end of an array
+Given an array, move all zeros to the end while maintaining the order of non-zero elements.
+Example Inputs and Outputs
+Input	                  Output
+[0, 1, 0, 3, 12]	      [1, 3, 12, 0, 0]
+[1, 2, 3, 0]	          [1, 2, 3, 0]
+[0, 0, 1]	              [1, 0, 0]
+[4, 0, 5, 0, 0, 3]	    [4, 5, 3, 0, 0, 0]
+*/
+
+const arr = [0, 1, 0, 3, 12];
