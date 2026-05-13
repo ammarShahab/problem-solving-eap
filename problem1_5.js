@@ -37,3 +37,27 @@ function CountVowels(sentence) {
 }
 
 CountVowels("My name is Ammar");
+
+/* 
+Problem-5: Remove duplicates from a string
+Write a function to remove duplicate characters from a string while maintaining order.
+*/
+function removeDuplicate(string) {
+  if (typeof string !== "string") {
+    console.log("value must be string");
+    return;
+  }
+  const toLowerCase = string.toLowerCase();
+  const arr = toLowerCase.split("");
+
+  const removeDouble = arr.map(function myFunc(value, index) {
+    if (arr.indexOf(value) === index) {
+      return value;
+    }
+  });
+
+  const result = removeDouble.join("");
+  console.log("Remove duplicate Value from string: ", result);
+}
+
+removeDuplicate("yyyYYYuuIII");
